@@ -9,9 +9,12 @@
         "pretty": "prettier --write ."
     },
     "dependencies": {
+        "algoliasearch": "^4.9.3",
         "next": "latest",
+        "next-instantsearch": "^0.3.15",
         "react": "^16.12.0",
-        "react-dom": "^16.12.0"
+        "react-dom": "^16.12.0",
+        "react-instantsearch-dom": "^6.11.1"
     },
     "devDependencies": {
         "@types/node": "^12.12.21",
