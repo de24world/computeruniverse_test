@@ -9,28 +9,32 @@ import {
   SearchBox,
 } from "react-instantsearch-dom";
 
-const HitComponent = ({ hit }) => (
-  <div className="hit">
-    <div>
-      <div className="hit-picture">
-        <img src={`${hit.image}`} />
-      </div>
-    </div>
-    <div className="hit-content">
+const HitComponent = ({ hit }) => {
+  console.log(hit, "this is hit");
+
+  return (
+    <div className="hit">
       <div>
-        <Highlight attribute="name" hit={hit} />
-        <span> - ${hit.price}</span>
-        <span> - {hit.rating} stars</span>
+        <div className="hit-picture">
+          <img src={`https://img.computerunivers.net${hit.image_url}`} />
+        </div>
       </div>
-      <div className="hit-type">
-        <Highlight attribute="type" hit={hit} />
-      </div>
-      <div className="hit-description">
-        <Highlight attribute="description" hit={hit} />
+      <div className="hit-content">
+        <div>
+          <Highlight attribute="name" hit={hit} /> <br />
+          <span> - ${hit.price}</span> <br />
+          <span> - {hit.ratings_average} stars</span> <br />
+        </div>
+        <div className="hit-type">
+          {/* <Highlight attribute="type" hit={hit} /> */}
+        </div>
+        <div className="hit-description">
+          {/* <Highlight attribute="description" hit={hit} /> */}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 function IndexPage() {
   return (
@@ -60,6 +64,6 @@ const searchClient = algoliasearch(
 );
 
 export default withInstantSearch({
-  indexName: "instant_search",
+  indexName: "Stage-ComputerUniverse",
   searchClient,
 })(IndexPage);
