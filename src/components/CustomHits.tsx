@@ -46,12 +46,21 @@ function Hits({ hits }: hitsIData): ReactElement {
                 <Highlight attribute="name" hit={hit} />
               </div>
               <div className="hit-ratings">
-                <Rating
+                {/* <Rating
                   name="ratings_average"
                   value={hit.ratings_average}
                   readOnly
+                /> */}
+                {hit.ratings_average}({hit.ratings_sum})
+                <RatingMenu
+                  attribute="ratings_average"
+                  // defaultRefinement={{ min: 2 }}
+                  // min={0}
+                  max={5.0}
+                  translations={{
+                    ratingLabel: "",
+                  }}
                 />
-                ({hit.ratings_sum})
               </div>
               <div className="hit-price">
                 <Typography variant="h6" color="primary">

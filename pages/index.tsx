@@ -10,7 +10,7 @@ import {
   SearchBox,
   Stats,
   Range,
-  ToggleRefinement
+  ToggleRefinement,
 } from "react-instantsearch-dom";
 
 // material UI
@@ -32,17 +32,16 @@ function IndexPage() {
         <SearchBox />
       </header>
       <main>
-        <Grid className="product" container >
-          <Grid  className="menu" lg={2}>
+        <Grid className="product" container>
+          <Grid className="menu" lg={2}>
             RefinementList - menu
-            <RefinementList attribute="categoryname" />
-            {/* <Range attribute={hit.price} /> */}
+            <RefinementList attribute="manufacturer" />
+            {/* <Range attribute="price" /> */}
             <ToggleRefinement
               attribute="in_stock"
               label="Available immediately"
               value={true}
             />
-            {/* in_stock */}
           </Grid>
           <Grid className="results" lg={10}>
             <Stats />
