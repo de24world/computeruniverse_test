@@ -8,7 +8,13 @@ import {
   Pagination,
   RefinementList,
   SearchBox,
+  Stats,
+  Range,
+  ToggleRefinement
 } from "react-instantsearch-dom";
+
+// material UI
+import { makeStyles, Grid, Typography } from "@material-ui/core";
 
 // Source
 import { CustomHits } from "../src/components/CustomHits";
@@ -26,15 +32,23 @@ function IndexPage() {
         <SearchBox />
       </header>
       <main>
-        <div className="">
-          <div className="menu">
+        <Grid className="product" container >
+          <Grid  className="menu" lg={2}>
             RefinementList - menu
-            <RefinementList attribute="categories" />
-          </div>
-          <div className="results  ">
+            <RefinementList attribute="categoryname" />
+            {/* <Range attribute={hit.price} /> */}
+            <ToggleRefinement
+              attribute="in_stock"
+              label="Available immediately"
+              value={true}
+            />
+            {/* in_stock */}
+          </Grid>
+          <Grid className="results" lg={10}>
+            <Stats />
             <CustomHits />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </main>
       <footer>
         <Pagination />
