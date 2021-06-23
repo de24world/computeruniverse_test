@@ -1,4 +1,6 @@
 import "../styles/globals.css";
+import "instantsearch.css/themes/reset.css";
+import "instantsearch.css/themes/satellite.css";
 import type { AppProps } from "next/app";
 
 // material UI
