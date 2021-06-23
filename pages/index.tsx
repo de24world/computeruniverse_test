@@ -1,62 +1,9 @@
-// import styles from "../styles/Home.module.css";
+import React from "react";
+// import Layout from "../src/components/Layout";
 
-// Libarary
-import algoliasearch from "algoliasearch/lite";
-import { withInstantSearch } from "next-instantsearch";
-import {
-  Configure,
-  Pagination,
-  RefinementList,
-  SearchBox,
-  Stats,
-  Range,
-  ToggleRefinement,
-} from "react-instantsearch-dom";
-
-// material UI
-import { makeStyles, Grid, Typography } from "@material-ui/core";
-
-// Source
-import { CustomHits } from "../src/components/CustomHits";
-
-const searchClient = algoliasearch(
-  process.env.APPLICATION_ID,
-  process.env.API_KEY
+const IndexPage = () => (
+  <div>this is IndexPage</div>
+  //   <Layout title="Home | Next.js + TypeScript Example"></Layout>
 );
 
-function IndexPage() {
-  return (
-    <>
-      <Configure hitsPerPage={4} />
-      <header>
-        <SearchBox />
-      </header>
-      <main>
-        <Grid className="product" container>
-          <Grid className="menu" lg={2}>
-            RefinementList - menu
-            <RefinementList attribute="manufacturer" />
-            {/* <Range attribute="price" /> */}
-            <ToggleRefinement
-              attribute="in_stock"
-              label="Available immediately"
-              value={true}
-            />
-          </Grid>
-          <Grid className="results" lg={10}>
-            <Stats />
-            <CustomHits />
-          </Grid>
-        </Grid>
-      </main>
-      <footer>
-        <Pagination />
-      </footer>
-    </>
-  );
-}
-
-export default withInstantSearch({
-  indexName: "Stage-ComputerUniverse",
-  searchClient,
-})(IndexPage);
+export default IndexPage;
