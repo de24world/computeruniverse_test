@@ -4,12 +4,6 @@ const StateResults = ({ searchResults }) => {
   const hasResults = searchResults && searchResults.nbHits !== 0;
   const nbHits = searchResults && searchResults.nbHits;
   //   console.log(searchResults, "searchResults???");
-  //   console.log(hasResults, "hasResults is true or false");
-  //   console.log(nbHits, "nbHits is result of search count number");
-
-  //   function searchValue() {
-  //     if (searchResults.query === !null) return <>{searchResults.query}</>;
-  //   }
 
   return (
     <>
@@ -20,7 +14,6 @@ const StateResults = ({ searchResults }) => {
         ) : (
           ""
         )}
-        {/* {searchResults.query === !"" && <p>{searchResults.query}</p>} */}
       </div>
       <div hidden={hasResults}>There is no results</div>
     </>
