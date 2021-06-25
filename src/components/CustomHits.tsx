@@ -28,7 +28,7 @@ interface hitObjectData {
 
 function Hits({ hits }: hitsIData): ReactElement {
   const classes = useStyles();
-  console.log(hits, "this is hit");
+  // console.log(hits, "this is hit");
 
   return (
     <div className="hit-component">

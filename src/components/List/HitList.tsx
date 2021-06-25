@@ -4,17 +4,11 @@ import React from "react";
 import Image from "next/image";
 
 // material UI
-import { makeStyles, Grid, Typography } from "@material-ui/core";
-import Rating from "@material-ui/lab/Rating";
 
 // Libarary
 import { Highlight, connectHits, RatingMenu } from "react-instantsearch-dom";
 
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
-
-interface hitsIData {
+interface hitIData {
   hit: hitObjectData;
 }
 
@@ -26,34 +20,26 @@ interface hitObjectData {
   price: number;
 }
 
-function HitList({ hit }: hitsIData): JSX.Element {
-  const classes = useStyles();
-  console.log(hit, "this is hit");
+function HitList({ hit }: hitIData): JSX.Element {
+  //   console.log(hit, "this is hit");
 
   return (
-    <div className="hit">
-      <div>
-        <div className="hit-picture">
-          <Image
-            src={`https://img.computerunivers.net${hit.image_url}`}
-            alt="picture"
-            width={150}
-            height={200}
-          />
-        </div>
+    <div className="hitList">
+      <Image
+        className="hit-picture"
+        src={`https://img.computerunivers.net${hit.image_url}`}
+        alt="picture"
+        width={150}
+        height={200}
+      />
+      <div className="hit-name">
+        <Highlight attribute="name" hit={hit} />
       </div>
-      <div className="hit-content">
-        <div>
-          <Highlight attribute="name" hit={hit} />
-          <span> - ${hit.price}</span>
-          <span> - {hit.ratings_average} stars</span>
-        </div>
-        {/* <div className="hit-type">
-        <Highlight attribute="type" hit={hit} />
+      <div className="hit-ratings">
+        {hit.ratings_average}({hit.ratings_sum})
       </div>
-      <div className="hit-description">
-        <Highlight attribute="description" hit={hit} />
-      </div> */}
+      <div className="hit-price">
+        <h6 color="primary">{hit.price} €</h6>
       </div>
     </div>
   );

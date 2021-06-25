@@ -18,25 +18,30 @@ import {
 // Next
 import Image from "next/image";
 
-// material UI
-import { makeStyles, Grid, Typography } from "@material-ui/core";
-
 // Source
 import HitList from "../src/components/List/HitList";
 
 const Page = () => (
   <>
-    <Configure hitsPerPage={12} />
+    <Configure hitsPerPage={4} />
     <header>
       <SearchBox />
     </header>
     <main>
-      <div className="menu">
-        <RefinementList attribute="manufacturer" />
-      </div>
-      <div className="results">
-        {/* <Hits hitComponent={HitComponent} /> */}
-        <Hits hitComponent={HitList} />
+      <div className="product">
+        <div className="menu">
+          <RefinementList attribute="manufacturer" />
+          <ToggleRefinement
+            attribute="in_stock"
+            label="Available immediately"
+            value={true}
+          />
+        </div>
+
+        <div className="results">
+          {/* <Hits hitComponent={HitComponent} /> */}
+          <Hits hitComponent={HitList} />
+        </div>
       </div>
     </main>
     <footer>
