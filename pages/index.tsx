@@ -20,12 +20,14 @@ import Image from "next/image";
 
 // Source
 import HitList from "../src/components/List/HitList";
+import { CustomStateResults } from "../src/components/CustomStateResults";
 
 const Page = () => (
   <>
     <Configure hitsPerPage={4} />
     <header>
       <SearchBox />
+      <CustomStateResults />
     </header>
     <main>
       <div className="product">
@@ -34,7 +36,7 @@ const Page = () => (
           <ToggleRefinement
             attribute="in_stock"
             label="Available immediately"
-            value={true}
+            value={false}
           />
         </div>
 
