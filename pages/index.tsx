@@ -11,7 +11,6 @@ import {
   Highlight,
   Hits,
   Stats,
-  Range,
   ToggleRefinement,
 } from "react-instantsearch-dom";
 
@@ -21,6 +20,7 @@ import Image from "next/image";
 // Source
 import HitList from "../src/components/List/HitList";
 import { CustomStateResults } from "../src/components/CustomStateResults";
+import { CustomRangeSlider } from "../src/components/CustomRangeSlider";
 
 const Page = () => (
   <>
@@ -38,6 +38,8 @@ const Page = () => (
             label="Available immediately"
             value={false}
           />
+          {/* test
+          <CustomRangeSlider attribute="price" /> */}
         </div>
 
         <div className="results">
@@ -47,7 +49,9 @@ const Page = () => (
       </div>
     </main>
     <footer>
-      <Pagination />
+      <div className="pagination">
+        <Pagination />
+      </div>
     </footer>
   </>
 );

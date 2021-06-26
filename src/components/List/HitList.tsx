@@ -3,10 +3,11 @@ import React from "react";
 // Next
 import Image from "next/image";
 
-// material UI
-
 // Libarary
 import { Highlight, connectHits, RatingMenu } from "react-instantsearch-dom";
+
+// Source
+import { CustomRatingMenu } from "../CustomRatingMenu";
 
 interface hitIData {
   hit: hitObjectData;
@@ -36,6 +37,8 @@ function HitList({ hit }: hitIData): JSX.Element {
         <Highlight attribute="name" hit={hit} />
       </div>
       <div className="hit-ratings">
+        {/* <RatingMenu attribute="hit.ratings_average" /> rating???  */}
+        <CustomRatingMenu attribute="ratratings_averageg" />
         {hit.ratings_average}({hit.ratings_sum})
       </div>
       <div className="hit-price">

@@ -1,4 +1,3 @@
-import type { AppProps } from "next/app";
 import { connectStateResults } from "react-instantsearch-dom";
 
 interface searchResultsProps {

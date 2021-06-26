@@ -49,6 +49,13 @@ a {
   }
 }
 
+.pagination {
+  display: grid;
+  margin: 2rem auto;
+  justify-content: center;
+}
+
+// instantsearch class
 .ais-Hits-list {
   display: flex;
   flex-wrap: wrap;
