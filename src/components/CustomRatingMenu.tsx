@@ -10,7 +10,7 @@ const RatingMenu = ({
   refine,
 }: RatingMenuProps): JSX.Element => {
   //   console.log(currentRefinement, "currentRefinement???");
-  //   console.log(refine, "refine???");
+  //   console.log(ratings_average, "ratings_average???");
 
   return (
     <ul>

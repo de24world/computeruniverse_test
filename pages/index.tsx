@@ -22,39 +22,42 @@ import HitList from "../src/components/List/HitList";
 import { CustomStateResults } from "../src/components/CustomStateResults";
 import { CustomRangeSlider } from "../src/components/CustomRangeSlider";
 
-const Page = () => (
-  <>
-    <Configure hitsPerPage={4} />
-    <header>
-      <SearchBox />
-      <CustomStateResults />
-    </header>
-    <main>
-      <div className="product">
-        <div className="menu">
-          <RefinementList attribute="manufacturer" />
-          <ToggleRefinement
-            attribute="in_stock"
-            label="Available immediately"
-            value={false}
-          />
-          {/* test
-          <CustomRangeSlider attribute="price" /> */}
-        </div>
+function Page(): JSX.Element {
+  console.log(searchClient, "searchClient in Index");
 
-        <div className="results">
-          {/* <Hits hitComponent={HitComponent} /> */}
-          <Hits hitComponent={HitList} />
+  return (
+    <>
+      <Configure hitsPerPage={4} />
+      <header>
+        <SearchBox />
+        <CustomStateResults />
+      </header>
+      <main>
+        <div className="product">
+          <div className="menu">
+            <RefinementList attribute="manufacturer" />
+            <ToggleRefinement
+              attribute="in_stock"
+              label="Available immediately"
+              value={false}
+            />
+            {/* test
+          <CustomRangeSlider attribute="price" /> */}
+          </div>
+
+          <div className="results">
+            <Hits hitComponent={HitList} />
+          </div>
         </div>
-      </div>
-    </main>
-    <footer>
-      <div className="pagination">
-        <Pagination />
-      </div>
-    </footer>
-  </>
-);
+      </main>
+      <footer>
+        <div className="pagination">
+          <Pagination />
+        </div>
+      </footer>
+    </>
+  );
+}
 
 const searchClient = algoliasearch(
   "testingWYUM3QGL0M",
