@@ -18,20 +18,23 @@ import {
 import Image from "next/image";
 
 // Source
+import HeadInfo from "../src/components/HeadInfo";
 import HitList from "../src/components/List/HitList";
 import { CustomStateResults } from "../src/components/CustomStateResults";
 import { CustomRangeSlider } from "../src/components/CustomRangeSlider";
 
 function Page(): JSX.Element {
-  console.log(searchClient, "searchClient in Index");
+  // console.log(searchClient, "searchClient in Index");
 
   return (
     <>
-      <Configure hitsPerPage={4} />
-      <header>
-        <SearchBox />
-        <CustomStateResults />
-      </header>
+      <HeadInfo
+        title="Computeruniverse Test"
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
+      <Configure hitsPerPage={4} /> <SearchBox />
+      <CustomStateResults />
       <main>
         <div className="product">
           <div className="menu">
