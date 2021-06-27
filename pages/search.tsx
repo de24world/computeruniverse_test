@@ -8,25 +8,17 @@ import {
   Pagination,
   RefinementList,
   SearchBox,
-  Highlight,
   Hits,
-  Stats,
   ToggleRefinement,
-  RangeInput,
 } from "react-instantsearch-dom";
-
-// Next
-import Image from "next/image";
 
 // Source
 import HeadInfo from "../src/components/HeadInfo";
 import HitList from "../src/components/List/HitList";
-import { CustomStateResults } from "../src/components/CustomStateResults";
-import { CustomRangeSlider } from "../src/components/CustomRangeSlider";
+import { CustomStateResults } from "../src/components/Search/CustomStateResults";
+import { CustomRangeSlider } from "../src/components/Search/CustomRangeSlider";
 
 function SearchPage(): JSX.Element {
-  // console.log(<CustomRangeSlider />, "CustomRangeSlider in Index");
-
   return (
     <>
       <div className="header">
@@ -61,7 +53,6 @@ function SearchPage(): JSX.Element {
               min={0}
               max={9999}
             />
-            {/* <RangeInput attribute="price" /> */}
           </div>
 
           <div className="results">

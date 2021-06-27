@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connectRange } from "react-instantsearch-dom";
 
 // Prerequisite: install rheostat@4
 import "rheostat/initialize";
 import Rheostat from "rheostat";
 import "rheostat/css/rheostat.css";
+
+interface RangeSliderProps {
+  min: number;
+  max: number;
+  currentRefinement: currentRefinementProps;
+  canRefine: boolean;
+  refine: Function;
+}
+
+interface currentRefinementProps {
+  values: number[];
+  min: number;
+  max: number;
+}
 
 const RangeSlider = ({
   min,
@@ -13,11 +27,11 @@ const RangeSlider = ({
   canRefine,
   refine,
 }: RangeSliderProps) => {
-  const [stateMin, setStateMin] = React.useState(min);
-  const [stateMax, setStateMax] = React.useState(max);
-  // console.log(currentRefinement, "currentRefinement in rangeslider");
+  const [stateMin, setStateMin] = useState(min);
+  const [stateMax, setStateMax] = useState(max);
+  // console.log(refine, "refine in rangeslider");
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (canRefine) {
       setStateMin(currentRefinement.min);
       setStateMax(currentRefinement.max);
@@ -28,13 +42,13 @@ const RangeSlider = ({
     return null;
   }
 
-  const onChange = ({ values: [min, max] }) => {
+  const onChange = ({ values: [min, max] }: currentRefinementProps) => {
     if (currentRefinement.min !== min || currentRefinement.max !== max) {
       refine({ min, max });
     }
   };
 
-  const onValuesUpdated = ({ values: [min, max] }) => {
+  const onValuesUpdated = ({ values: [min, max] }: currentRefinementProps) => {
     setStateMin(min);
     setStateMax(max);
   };

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 // Libarary
-import { Highlight, connectHits, RatingMenu } from "react-instantsearch-dom";
+import { Highlight } from "react-instantsearch-dom";
 import ReactStars from "react-rating-stars-component";
 
 // Source
@@ -47,8 +47,6 @@ function HitList({ hit }: hitIData): JSX.Element {
         <Highlight attribute="name" hit={hit} />
       </div>
       <div className="hit-ratings">
-        {/* <RatingMenu attribute="hit.ratings_average" hit={hit} /> rating??? */}
-        {/* <CustomRatingMenu attribute="ratings_average" hit={hit} /> */}
         <ReactStars count={5} value={ratingAverage} edit={false} />
         <span>({ratingsSum})</span>
       </div>

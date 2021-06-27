@@ -24,6 +24,7 @@
         "@types/react": "17.0.11",
         "@types/react-dom": "^16.9.4",
         "@types/react-instantsearch-dom": "^6.10.0",
+        "@types/rheostat": "^3.0.0",
         "eslint": "7.29.0",
         "eslint-config-next": "11.0.0",
         "prettier": "^2.1.1",
