@@ -20,6 +20,22 @@ a {
   box-sizing: border-box;
 }
 
+.layout {
+  padding: 1rem 10rem 1rem 10rem;
+
+  @media (max-width: $lg) {
+    padding: 1rem;
+  }
+}
+
+.container {
+  padding: 1rem;
+}
+
+.header {
+  padding: 20px;
+}
+
 .product {
   width: 100%;
   display: flex;
@@ -27,7 +43,7 @@ a {
   box-sizing: border-box;
 }
 
-.menu {
+.sidebar {
   flex-grow: 0;
   max-width: 16.666667%;
   flex-basis: 16.666667%;

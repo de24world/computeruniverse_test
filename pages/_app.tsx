@@ -10,7 +10,7 @@ import "instantsearch.css/themes/satellite.css";
 import type { AppProps } from "next/app";
 
 // source
-import Layout from "../src/components/Layout";
+import Layout from "../src/components/Layout/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

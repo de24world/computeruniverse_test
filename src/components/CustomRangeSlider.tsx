@@ -15,6 +15,7 @@ const RangeSlider = ({
 }: RangeSliderProps) => {
   const [stateMin, setStateMin] = React.useState(min);
   const [stateMax, setStateMax] = React.useState(max);
+  // console.log(currentRefinement, "currentRefinement in rangeslider");
 
   React.useEffect(() => {
     if (canRefine) {

@@ -6,15 +6,15 @@ import Head from "next/head";
 interface Props {
   title: string;
   name: string;
-  contents: string;
+  content: string;
 }
 
-function HeadInfo({ title, name, contents }: Props): JSX.Element {
+function HeadInfo({ title, name, content }: Props): JSX.Element {
   return (
     <>
       <title>{title}</title>
       <meta name={name} />
-      <meta contents={contents} />
+      <meta content={content} />
     </>
   );
 }

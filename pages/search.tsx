@@ -1,4 +1,4 @@
-// import styles from "../styles/Home.module.css";
+import React from "react";
 
 // Libarary
 import algoliasearch from "algoliasearch/lite";
@@ -8,51 +8,80 @@ import {
   Pagination,
   RefinementList,
   SearchBox,
+  Highlight,
+  Hits,
   Stats,
-  Range,
   ToggleRefinement,
+  RangeInput,
 } from "react-instantsearch-dom";
 
+// Next
+import Image from "next/image";
+
 // Source
-import { CustomHits } from "../src/components/CustomHits";
+import HeadInfo from "../src/components/HeadInfo";
+import HitList from "../src/components/List/HitList";
 import { CustomStateResults } from "../src/components/CustomStateResults";
+import { CustomRangeSlider } from "../src/components/CustomRangeSlider";
 
-const searchClient = algoliasearch(
-  process.env.APPLICATION_ID,
-  process.env.API_KEY
-);
+function SearchPage(): JSX.Element {
+  // console.log(<CustomRangeSlider />, "CustomRangeSlider in Index");
 
-function SearchPage() {
   return (
     <>
-      <Configure hitsPerPage={4} />
-      <header>
-        <SearchBox />
-      </header>
+      <div className="header">
+        <HeadInfo
+          title="Computeruniverse Test"
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <Configure hitsPerPage={4} /> <SearchBox />
+        <CustomStateResults />
+      </div>
+
       <main>
         <div className="product">
-          <div className="menu">
-            <RefinementList attribute="manufacturer" />
-            {/* <Range attribute="price" /> */}
+          <div className="sidebar container">
+            <RefinementList
+              attribute="manufacturer"
+              showMore
+              showMoreLimit={30}
+            />
             <ToggleRefinement
               attribute="in_stock"
               label="Available immediately"
               value={true}
             />
+            <CustomRangeSlider
+              attribute="price"
+              defaultRefinement={{
+                min: 1,
+                max: 9860,
+              }}
+              min={0}
+              max={9999}
+            />
+            {/* <RangeInput attribute="price" /> */}
           </div>
+
           <div className="results">
-            CustomStateResults : <CustomStateResults />
-            {/* Stats : <Stats /> */}
-            <CustomHits />
+            <Hits hitComponent={HitList} />
           </div>
         </div>
       </main>
       <footer>
-        <Pagination />
+        <div className="pagination">
+          <Pagination />
+        </div>
       </footer>
     </>
   );
 }
+
+const searchClient = algoliasearch(
+  "testingWYUM3QGL0M",
+  "298a84786d04a76fc9edccfbd203bb8e"
+);
 
 export default withInstantSearch({
   indexName: "Stage-ComputerUniverse",

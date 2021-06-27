@@ -1,31 +1,12 @@
 import React from "react";
 
-// Libarary
-import algoliasearch from "algoliasearch/lite";
-import { withInstantSearch } from "next-instantsearch";
-import {
-  Configure,
-  Pagination,
-  RefinementList,
-  SearchBox,
-  Highlight,
-  Hits,
-  Stats,
-  ToggleRefinement,
-} from "react-instantsearch-dom";
-
 // Next
-import Image from "next/image";
+import Link from "next/link";
 
 // Source
 import HeadInfo from "../src/components/HeadInfo";
-import HitList from "../src/components/List/HitList";
-import { CustomStateResults } from "../src/components/CustomStateResults";
-import { CustomRangeSlider } from "../src/components/CustomRangeSlider";
 
-function Page(): JSX.Element {
-  // console.log(searchClient, "searchClient in Index");
-
+function IndexPage(): JSX.Element {
   return (
     <>
       <HeadInfo
@@ -33,41 +14,29 @@ function Page(): JSX.Element {
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width"
       />
-      <Configure hitsPerPage={4} /> <SearchBox />
-      <CustomStateResults />
-      <main>
-        <div className="product">
-          <div className="menu">
-            <RefinementList attribute="manufacturer" />
-            <ToggleRefinement
-              attribute="in_stock"
-              label="Available immediately"
-              value={false}
-            />
-            {/* test
-          <CustomRangeSlider attribute="price" /> */}
-          </div>
 
-          <div className="results">
-            <Hits hitComponent={HitList} />
-          </div>
-        </div>
-      </main>
-      <footer>
-        <div className="pagination">
-          <Pagination />
-        </div>
-      </footer>
+      <div>
+        <h3>Acceptance criteria: </h3>
+        <p>1. Display the products in the Style from the screen</p>
+        <p>2. Displays on Mobile ( 320 px– 768px) 1 Product</p>
+        <p>3. Displays on Tablet (768px – 960px) 3 Products</p>
+        <p>4. Displays on Desktop 4 Products</p>
+        <p>
+          Displays the Current Search Value in a Headline above the Products Has
+          a Filter Bar on the Left side with the following filters:
+        </p>
+        <span> a.Price b.Manufacturer c.Available immediately</span>
+      </div>
+
+      <div>
+        <Link href="/search" passHref>
+          <button>
+            <a>Move to search Page</a>
+          </button>
+        </Link>
+      </div>
     </>
   );
 }
 
-const searchClient = algoliasearch(
-  "testingWYUM3QGL0M",
-  "298a84786d04a76fc9edccfbd203bb8e"
-);
-
-export default withInstantSearch({
-  indexName: "Stage-ComputerUniverse",
-  searchClient,
-})(Page);
+export default IndexPage;
